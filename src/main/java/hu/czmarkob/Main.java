@@ -7,6 +7,10 @@ public class Main {
 	public static void main(String[] args) throws URISyntaxException {
 		EngineSchematicResolver engineSchematicResolver = new EngineSchematicResolver(
 				Paths.get(ClassLoader.getSystemResource("input.txt").toURI()));
-		engineSchematicResolver.resolve();
+		char[][] matrix = engineSchematicResolver.createMatrix();
+		int rows = matrix.length;
+		int cols = matrix[0].length;
+		engineSchematicResolver.resolve(matrix, rows, cols);
+		engineSchematicResolver.resolveGearRatios(matrix, rows, cols);
 	}
 }
